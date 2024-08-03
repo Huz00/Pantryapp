@@ -1,33 +1,50 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 33, 37, 41; /* Dark grey for text */
+  --primary-color: 255, 165, 0; /* Orange for primary buttons */
+  --secondary-color: 220, 20, 60; /* Crimson for secondary buttons */
+  --paper-background-rgb: 255, 255, 255; /* White background for the paper */
+  --paper-border-color: 255, 193, 7; /* Yellow border color for the paper */
 }
-
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --foreground-rgb: 255, 255, 255; /* White for text */
+    --primary-color: 255, 140, 0; /* Dark orange for primary buttons */
+    --secondary-color: 255, 69, 0; /* Red-orange for secondary buttons */
+    --paper-background-rgb: 48, 48, 48; /* Dark background for the paper */
+    --paper-border-color: 255, 165, 0; /* Orange border color for the paper */
   }
 }
 
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    135deg,
+    rgba(255, 87, 34, 0.8), /* Orange */
+    rgba(255, 193, 7, 0.8), /* Yellow */
+    rgba(76, 175, 80, 0.8)  /* Green */
+  );
+  background-size: 200% 200%;
+  animation: gradientAnimation 15s ease infinite;
+  font-family: 'Inter', sans-serif; /* Use Inter font */
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: rgb(var(--foreground-rgb));
+}
+
+button {
+  font-family: 'Inter', sans-serif;
 }
